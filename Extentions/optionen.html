@@ -1,50 +1,84 @@
-<html> 
-    <head>
-        <title>
-            Cookie Crumbler
-        </title>
-        <style>
+<html>
 
-        h1 {font-size: 25px; color: rgb(0, 0, 0); font-family: Arial; text-align: center; }
-        h2 {font-size: 15px; color: rgb(0, 0, 0); font-family: Arial; }
-
-        
-        .Cookie1 {
-            height: 200px;
-            width: 450px;
-            background-color: rgb(255, 255, 255);
+<head>
+    <title>
+        Cookie Crumbler
+    </title>
+    <style>
+        h1 {
+            font-size: 10px;
+            color: black;
+            font-family: Arial;
+            text-align: center;
         }
-        body{background-color: rgb(255, 255, 255);}
-        
-        
-        
-        
-        
-        
-        
-        </style>
-    </head>
+
+        h2 {
+            font-size: 10px;
+            color: black;
+            font-family: Arial;
+        }
+
+        .Cookie1 {
+            height: 400px;
+            width: 400px;
+            background-color: rgb(255, 255, 255);
+            background-image:url('bilder/keksmonster.jpg') ;
+        }
+
+        body {
+            background-color: silver;
+        }
+
+        .Content1 {
+
+            background-color: rgba(134, 111, 123, 0.8);
+
+        }
 
 
-    
+        button {
+            text-align: right;
+        }
+    </style>
+</head>
+
+
+
 <body>
 
-<div class="Cookie1">
+    <div class="Cookie1">
+        <div class="Content1">
+            <h1> Hello </h1>
+            <h2> 1. Notwendige Cookies <input type="checkbox" id="notwendig" onclick="onNotwendig()"> </h2>
+            <h2> 2. Leistungs- oder Perfomance Cookies. <input type="checkbox"> </h2>
+            <h2> 3. Funktionscookies <input type="checkbox"> </h2>
+            <h2> 4. Werbe-Cookies <input type="checkbox"> </h2>
 
-<h1> Optionen </h1>
-<h2> 1. Notwendige Cookies                       <button type="button">An</button>  <button type="button">Aus</button>   </h2> 
-<h2> 2. Leistungs- oder Perfomance Cookies.      <button type="button">An</button>  <button type="button">Aus</button>   </h2>
-<h2> 3. Funktionscookies                         <button type="button">An</button>  <button type="button">Aus</button>  </h2>
-<h2> 4. Werbe-Cookies                            <button type="button">An</button>  <button type="button">Aus</button>   </h2>
+        </div>
+    </div>
 
+    <script>
+        function onNotwendig()
+        {
+            var checkbox=document.getElementById("notwendig");
+            if (checkbox.checked==true)
+            {
+                chrome.storage.local.set({"notwendigwert": 1});
+            }
+            else 
+            {
+                chrome.storage.local.set({"notwendigwert": 0});
+            } 
+            chrome.storage.local.get("notwendigwert", function(res) {
+                console.log(res)
+            });
+        }
+        
 
-
-</div>
-
-
+        
+        </script>
 
 
 
 </body>
-
 </html>
