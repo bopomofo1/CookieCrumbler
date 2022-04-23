@@ -19,9 +19,10 @@
         }
 
         .Cookie1 {
-            height: 200px;
-            width: 450px;
+            height: 400px;
+            width: 400px;
             background-color: rgb(255, 255, 255);
+            background-image:url('bilder/keksmonster.jpg') ;
         }
 
         body {
@@ -48,16 +49,34 @@
     <div class="Cookie1">
         <div class="Content1">
             <h1> Hello </h1>
-            <h2> 1. Notwendige Cookies <button type="submit">An</button> <button type="submit">Aus</button> </h2>
-            <h2> 2. Leistungs- oder Perfomance Cookies. <button type="submit">An</button> <button
-                    type="submit">Aus</button> </h2>
-            <h2> 3. Funktionscookies <button type="submit">An</button> <button type="submit">Aus</button> </h2>
-            <h2> 4. Werbe-Cookies <button type="submit">An</button> <button type="submit">Aus</button> </h2>
+            <h2> 1. Notwendige Cookies <input type="checkbox" id="notwendig" onclick="onNotwendig()"> </h2>
+            <h2> 2. Leistungs- oder Perfomance Cookies. <input type="checkbox"> </h2>
+            <h2> 3. Funktionscookies <input type="checkbox"> </h2>
+            <h2> 4. Werbe-Cookies <input type="checkbox"> </h2>
 
         </div>
     </div>
 
+    <script>
+        function onNotwendig()
+        {
+            var checkbox=document.getElementById("notwendig");
+            if (checkbox.checked==true)
+            {
+                chrome.storage.local.set({"notwendigwert": 1});
+            }
+            else 
+            {
+                chrome.storage.local.set({"notwendigwert": 0});
+            } 
+            chrome.storage.local.get("notwendigwert", function(res) {
+                console.log(res)
+            });
+        }
+        
 
+        
+        </script>
 
 
 
