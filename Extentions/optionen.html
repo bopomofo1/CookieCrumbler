@@ -30,8 +30,9 @@
         }
 
         .Content1 {
-
-            background-color: rgba(134, 111, 123, 0.8);
+            height: 400px;
+            width: 400px;
+            background-color: rgba(173, 173, 173, 0.8);
 
         }
 
@@ -49,36 +50,14 @@
     <div class="Cookie1">
         <div class="Content1">
             <h1> Hello </h1>
-            <h2> 1. Notwendige Cookies <input type="checkbox" id="notwendig" onclick="onNotwendig()"> </h2>
+            <h2> 1. Notwendige Cookies <input type="checkbox" id="notwendig"> </h2>
             <h2> 2. Leistungs- oder Perfomance Cookies. <input type="checkbox"> </h2>
             <h2> 3. Funktionscookies <input type="checkbox"> </h2>
             <h2> 4. Werbe-Cookies <input type="checkbox"> </h2>
 
         </div>
     </div>
-
-    <script>
-        function onNotwendig()
-        {
-            var checkbox=document.getElementById("notwendig");
-            if (checkbox.checked==true)
-            {
-                chrome.storage.local.set({"notwendigwert": 1});
-            }
-            else 
-            {
-                chrome.storage.local.set({"notwendigwert": 0});
-            } 
-            chrome.storage.local.get("notwendigwert", function(res) {
-                console.log(res)
-            });
-        }
-        
-
-        
-        </script>
-
-
+    <script src="optionen.js"></script>
 
 </body>
 </html>
