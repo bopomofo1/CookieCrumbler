@@ -3,8 +3,8 @@
   "name": "Cookie Crumbler",
   "version": "0.1",
 
-  "icons": { 
-   "128": "bilder/cookie.jpg" 
+  "icons": {
+   "128": "bilder/cookie.jpg"
   },
 
   "content_scripts": [
@@ -18,13 +18,15 @@
 
   "browser_action": {
     "default_icon": {"128": "bilder/cookie.jpg"},
-    "default_title": "Cookie Crumbler",  
-    "default_popup": "popup.html" 
+    "default_title": "Cookie Crumbler",
+    "default_popup": "popup.html"
   },
 
   "background": {
     "scripts": ["background.js"]
-  }
+  },
+
+  "permissions": ["storage"]
 
 }
 
