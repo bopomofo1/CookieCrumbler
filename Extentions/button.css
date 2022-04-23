@@ -8,6 +8,6 @@ button {
 }
 
 button.current {
-  box-shadow: 0 0 0 2px white,
+  box-shadow: 0 0 0 2px orange,
               0 0 0 4px black;
 }
