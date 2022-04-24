@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <title>CookieCrumbler</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 200px;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 700;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+<div>
+    <h1>CookieCounter</h1>
+    <p>Hier wird angezeigt, wie viele Cookies bereits weggecrumbelt wurden</p>
+	<div id="myPlot" ></div>
+    <p><a href="optionen.html">Zurück...</a></p>
+</div>
+
+<script>
+console.log("hi")
+/*
+fetch('http://example.com/movies.json')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  */
+  // set cookie counter var
+  var resi = [50,60,70,80,90,100,110,120,130,140,150];
+localStorage.setItem("CookieCounter", resi);
+
+// get cookie counter var
+var res = localStorage.getItem("CookieCounter", function(res) {});
+
+  
+    var xArray = [50,60,70,80,90,100,110,120,130,140,150];
+    var yArray = [7,8,8,9,9,9,10,11,14,14,0];
+
+
+	function print_plot (xA, yA) {
+		// Define Data
+		var data = [{
+		x: xA,
+		y: yA,
+		mode:"markers",
+		type:"scatter"
+		}];
+
+		// Define Layout
+		var layout = {
+		xaxis: {range: [40, 160], title: "Stunden"},
+		yaxis: {range: [5, 16], title: "Cookie Gecrumbelt"},
+		title: "Gecrumbelte Cookies yay!"
+		};
+
+		Plotly.newPlot("myPlot", data, layout);
+	}
+	var liste = res.split(",");
+	print_plot (liste, yArray)
+
+</script>
+</body>
+</html>
+
