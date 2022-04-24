@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>
+        Cookie Crumbler
+    </title>
+    <style>
+        h1 {
+            font-size: 40px;
+            color: black;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 25px;
+            color: black;
+            font-family: Arial;
+            border: 30px;
+            border-color: white;
+        }
+
+        .Cookie1 {
+            height: 400px;
+            width: 400px;
+            background-image: url('bilder/keksmonster.jpg');
+        }
+
+        body {
+            background-color: silver;
+        }
+
+        .Content1 {
+
+            height: 400px;
+            width: 400px;
+            background-color: rgba(173, 173, 173, 0.8);
+
+
+        }
+
+        .Checkbox {
+            float: right;
+            height: 25px;
+            width: 25px;
+        }
+
+        .Pfeil {
+            float: left;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Cookie1">
+        <div class="Content1">
+            <h1><a href="popup.html"><img class="Pfeil" src="bilder/Zurueckpfeil.jpg" alt="alternativer_text" /></a>Optionen </h1>
+            <h2> 1. Notwendige Cookies <input type="checkbox" id="notwendig" class="Checkbox"> </h2>
+            <h2> 2. Leistungs- oder Perfomance Cookies. <input type="checkbox" class="Checkbox" id="leistung"> </h2>
+            <h2> 3. Funktionscookies <input type="checkbox" id="funktions" class="Checkbox"> </h2>
+            <h2> 4. Werbe-Cookies <input type="checkbox" class="Checkbox"id="werb" alt="alternativer_text" /></h1>
+            <h3><a href="stats.html">Mehr Informationen...</a></h3>
+            </div>
+        </div>
+        <script src="optionen.js">
+        </script>
+
+</body>
+
+</html>
