@@ -35,4 +35,4 @@ var yArray = [1, 3, 3, 3, 3, 4, 12, 22, 26, 36, 63, 66, 75, 78, 105, 111, 126, 1
 		Plotly.newPlot("myPlot", data, layout);
 	}
 	var liste = res.split(",");
-	print_plot (liste, yArray)
+	print_plot (xArray, yArray)
