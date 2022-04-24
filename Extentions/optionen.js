@@ -1,18 +1,28 @@
+var checkboxNotwendig=document.getElementById("notwendig");
+// Read it using the storage API
+chrome.storage.sync.get(['notwendigwert'], function(items) {
+    message('Settings retrieved', items);
+  });
+
 function onNotwendig()
         {
         
             var checkbox=document.getElementById("notwendig");
             if (checkbox.checked==true)
             {
-                chrome.storage.local.set({"notwendigwert": 1});
+                // Save it using the Chrome extension storage API.
+                chrome.storage.sync.set({'notwendigwert': 1}, function() {
+                    console.log('Settings saved');
+                });
+  
+      
             }
             else 
             {
-                chrome.storage.local.set({"notwendigwert": 0});
+                chrome.storage.sync.set({'notwendigwert': 0}, function() {
+                    console.log('Settings saved');
+                });
             } 
-                chrome.storage.local.get("notwendigwert", function(res) {
-                  console.log(res)
-            });
         }
         var checkboxNotwendig = document.getElementById("notwendig");
         checkboxNotwendig.addEventListener('click', onNotwendig);
@@ -49,7 +59,7 @@ function onFunktions()
                 chrome.storage.local.set({"funktionswert": 0});
             } 
                 chrome.storage.local.get("funktionswert", function(res) {
-                  console.log(res)
+                  console.log(res.funktionswert);
             });
         }
         var checkboxFunktions = document.getElementById("funktions");
