@@ -1,8 +1,52 @@
 var checkboxNotwendig=document.getElementById("notwendig");
-// Read it using the storage API
-chrome.storage.sync.get(['notwendigwert'], function(items) {
-    message('Settings retrieved', items);
-  });
+var checkboxFunktions=document.getElementById("funktions");
+var checkboxLeistung=document.getElementById("leistung");
+var checkboxWerbung=document.getElementById("werbung");
+
+chrome.storage.local.get("notwendigwert", function(res) {
+    if(res.notwendigwert == 1) 
+    {
+        checkboxNotwendig.checked = true;
+    }
+    else 
+    {
+        checkboxNotwendig.checked = false;
+    }
+});
+
+chrome.storage.local.get("funktionswert", function(res) {
+    if(res.funktionswert == 1) 
+    {
+        checkboxFunktions.checked = true;
+    }
+    else 
+    {
+        checkboxFunktions.checked = false;
+    }
+});
+
+chrome.storage.local.get("leistungwert", function(res) {
+    if(res.leistungwert == 1) 
+    {
+        checkboxLeistung.checked = true;
+    }
+    else 
+    {
+        checkboxLeistung.checked = false;
+    }
+});
+
+chrome.storage.local.get("werbungwert", function(res) {
+    if(res.werbungwert == 1) 
+    {
+        checkboxWerbung.checked = true;
+    }
+    else 
+    {
+        checkboxWerbung.checked = false;
+    }
+});
+
 
 function onNotwendig()
         {
@@ -10,19 +54,15 @@ function onNotwendig()
             var checkbox=document.getElementById("notwendig");
             if (checkbox.checked==true)
             {
-                // Save it using the Chrome extension storage API.
-                chrome.storage.sync.set({'notwendigwert': 1}, function() {
-                    console.log('Settings saved');
-                });
-  
-      
+                chrome.storage.local.set({"notwendigwert": 1});
             }
             else 
             {
-                chrome.storage.sync.set({'notwendigwert': 0}, function() {
-                    console.log('Settings saved');
-                });
+                chrome.storage.local.set({"notwendigwert": 0});
             } 
+                chrome.storage.local.get("notwendigwert", function(res) {
+                  console.log(res.notwendigwert);
+            });
         }
         var checkboxNotwendig = document.getElementById("notwendig");
         checkboxNotwendig.addEventListener('click', onNotwendig);
