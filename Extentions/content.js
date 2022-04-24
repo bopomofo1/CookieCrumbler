@@ -36,5 +36,16 @@ if (window.location.hostname == "www.drk.de") {
         }, 2000);
       }, 2000);
     }
+    if (window.location.hostname == "www.twitch.tv") {
+      alert("Cookies werden auf twitch entfernt");
+      setTimeout(function() {
+        // DRK page click cookie banner
+        document.querySelector("#root > div > div.Layout-sc-nxg1ff-0.bSuLAT > div.Layout-sc-nxg1ff-0.kxZWcq > div > div > div > div.Layout-sc-nxg1ff-0.gQVIKZ > div > button > div > div > div").click();
+      }, 2000);
+      
+      setTimeout(function() {
+        document.querySelector("body > div.ReactModalPortal > div > div > div > div > div > div.Layout-sc-nxg1ff-0.cIfBon.gdpr-consent-modal__content > div.Layout-sc-nxg1ff-0.exBThy > div > button").click();
+      }, 3000);
+    }
   }
 }
