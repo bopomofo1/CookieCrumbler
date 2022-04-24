@@ -36,8 +36,8 @@ chrome.storage.local.get("leistungwert", function(res) {
     }
 });
 
-chrome.storage.local.get("werbungswert", function(res) {
-    if(res.leistungwert == 1) 
+chrome.storage.local.get("werbungwert", function(res) {
+    if(res.werbungwert == 1) 
     {
         checkboxWerbung.checked = true;
     }
